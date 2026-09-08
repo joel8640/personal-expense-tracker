@@ -101,3 +101,129 @@ for expense in self.expenses:
 
     else:
         category_totals[expense.category] = expense.amount
+```
+
+This allows the application to dynamically group expenses
+without requiring predefined categories.
+
+---
+
+## CSV File Handling
+
+Expense data is stored using Python's `csv` module.
+
+```python
+with open(
+    self.filename,
+    "w",
+    newline="",
+    encoding="utf-8"
+) as file:
+
+    writer = csv.writer(file)
+
+    writer.writerow(
+        [
+            "Date",
+            "Category",
+            "Description",
+            "Amount"
+        ]
+    )
+
+    for expense in self.expenses:
+
+        writer.writerow(
+            [
+                expense.date,
+                expense.category,
+                expense.description,
+                expense.amount
+            ]
+        )
+```
+
+The application also loads previously saved CSV data
+when the program starts.
+
+---
+
+## Program Output
+
+The following screenshot shows the Monthly Summary feature
+running in VS Code.
+
+The application filters expenses by month and calculates
+the total spending for the selected month.
+
+![Personal Expense Tracker Output](images/python-output.png)
+
+---
+
+## Python Code Example
+
+The following screenshot shows the `category_summary()` method.
+
+This method uses a dictionary, loop and conditional statement
+to calculate category-based spending totals.
+
+![Python Category Summary Code](images/python-code.png)
+
+---
+
+## Example CSV Data
+
+The application stores expense information using the following structure:
+
+```csv
+Date,Category,Description,Amount
+2026-09-08,Food,Lunch,15.0
+2026-09-08,Transport,Subway,5.5
+2026-09-08,Subscription,Netflix,15.0
+```
+
+---
+
+## What I Learned
+
+This project improved my understanding of Python data structures,
+object-oriented programming and file handling.
+
+I gained practical experience with:
+
+- Lists
+- Dictionaries
+- CSV files
+- File handling
+- Object-oriented programming
+- Classes and objects
+- Loops
+- Exception handling
+- User input
+- Data aggregation
+- Debugging
+
+I also learned how Python can be used to build a practical
+data-processing application that stores, retrieves and analyses
+information.
+
+---
+
+## Source Code
+
+The complete Python application is available in:
+
+[`expense_tracker.py`](expense_tracker.py)
+
+Sample expense data is available in:
+
+[`expenses.csv`](expenses.csv)
+
+---
+
+## Author
+
+Joel Lee
+
+UTS College  
+Diploma of Information Technology
